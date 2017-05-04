@@ -28,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
         //Create modules in Modules array
         module = new ArrayList<Modules>();
-        module.add(new Modules("c300"));
+        module.add(new Modules("C302", "Web Services"));
+        module.add(new Modules("C347", "Android Programming II"));
 
         //Link activity row.xml to this
         aa = new ModuleAdapter(this, R.layout.row_activity1_listview, module);

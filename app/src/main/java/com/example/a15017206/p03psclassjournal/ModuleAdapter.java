@@ -20,6 +20,7 @@ public class ModuleAdapter extends ArrayAdapter<Modules> {
     private ArrayList<Modules> modules;
     private Context context;
     private TextView tvModuleCode;
+    private TextView tvModuleName;
 
     public ModuleAdapter(Context context, int resource, ArrayList<Modules> objects) {
         super(context, resource, objects);
@@ -40,6 +41,7 @@ public class ModuleAdapter extends ArrayAdapter<Modules> {
 
         // Get the TextView object - in row.xml
         tvModuleCode = (TextView) rowView.findViewById(R.id.tvRowTemplate);
+        tvModuleName = (TextView) rowView.findViewById(R.id.tvModuleName);
 
         // The parameter "position" is the index of the
         //  row ListView is requesting.
@@ -47,6 +49,8 @@ public class ModuleAdapter extends ArrayAdapter<Modules> {
         Modules currentModule = modules.get(position);
         // Set the TextView to show the food
         tvModuleCode.setText(currentModule.getModuleCode());
+        tvModuleName.setText(currentModule.getModuleName());
+
 
         return rowView;
 //        return super.getView(position, convertView, parent);
