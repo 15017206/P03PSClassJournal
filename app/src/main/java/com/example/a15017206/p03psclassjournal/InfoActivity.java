@@ -30,7 +30,6 @@ public class InfoActivity extends AppCompatActivity {
         ViewGroup myHeader = (ViewGroup)myinflater.inflate(R.layout.activity_info, lv, false);
         lv.addHeaderView(myHeader, null, false);
 
-
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
