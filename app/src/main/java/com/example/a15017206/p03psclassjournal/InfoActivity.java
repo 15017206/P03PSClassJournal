@@ -31,8 +31,6 @@ public class InfoActivity extends AppCompatActivity {
         lv.addHeaderView(myHeader, null, false);
 
 
-
-
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
