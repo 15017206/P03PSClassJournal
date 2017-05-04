@@ -7,12 +7,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class InfoActivity extends AppCompatActivity {
     Button btnInfo;
     ListView lv;
+    ArrayAdapter aa;
+    ArrayList<Info> modules;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +34,11 @@ public class InfoActivity extends AppCompatActivity {
         ViewGroup myHeader = (ViewGroup)myinflater.inflate(R.layout.activity_info, lv, false);
         lv.addHeaderView(myHeader, null, false);
 
+
+        modules = new ArrayList<Info>();
+        modules.add(new Info("B", true));
+        modules.add(new Info("C", true));
+        modules.add(new Info("A", true));
 
 
 
