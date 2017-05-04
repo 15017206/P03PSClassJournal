@@ -13,6 +13,8 @@ import android.widget.ListView;
 public class InfoActivity extends AppCompatActivity {
     Button btnInfo;
     ListView lv;
+    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +42,8 @@ public class InfoActivity extends AppCompatActivity {
                 startActivity(rpIntent);
             }
         });
+
+
 
     }
 
