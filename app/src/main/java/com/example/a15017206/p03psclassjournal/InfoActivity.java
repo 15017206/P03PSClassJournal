@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 
 public class InfoActivity extends AppCompatActivity {
     Button btnInfo;
-
+    ListView lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +21,15 @@ public class InfoActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Info for C347");
 
         btnInfo = (Button) findViewById(R.id.infoButton);
+        lv=(ListView)findViewById(R.id.lvInfo);
+
+        LayoutInflater myinflater = getLayoutInflater();
+        ViewGroup myHeader = (ViewGroup)myinflater.inflate(R.layout.activity_info, lv, false);
+        lv.addHeaderView(myHeader, null, false);
+
+
+
+
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
