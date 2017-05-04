@@ -7,14 +7,20 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+
+import java.util.ArrayList;
 
 import static android.R.id.message;
 
 public class InfoActivity extends AppCompatActivity {
     Button btnInfo, btnEmail;
     ListView lv;
+    ArrayAdapter aa;
+    ArrayList<Weeks> weeks;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,18 +30,64 @@ public class InfoActivity extends AppCompatActivity {
         Intent i = getIntent();
 
         // Get the Hero object first activity put in Intent
-        Modules passedOverModuleCode = (Modules) i.getSerializableExtra("forZongHua");
+        Modules passedOverModule = (Modules) i.getSerializableExtra("forZongHua");
+
+        String moduleCode = passedOverModule.getModuleCode();
+        String moduleName = passedOverModule.getModuleName();
 
         //set title for others
-        getSupportActionBar().setTitle("Info for " + passedOverModuleCode.getModuleName());
+        getSupportActionBar().setTitle("Info for " + moduleName);
 
         btnInfo = (Button) findViewById(R.id.infoButton);
         btnEmail = (Button) findViewById(R.id.emailButton);
         lv=(ListView)findViewById(R.id.lvInfo);
 
-        LayoutInflater myinflater = getLayoutInflater();
-        ViewGroup myHeader = (ViewGroup)myinflater.inflate(R.layout.activity_info, lv, false);
-        lv.addHeaderView(myHeader, null, false);
+//        LayoutInflater myinflater = getLayoutInflater();
+//        ViewGroup myHeader = (ViewGroup)myinflater.inflate(R.layout.activity_info, lv, false);
+//        lv.addHeaderView(myHeader, null, false);
+
+        weeks = new ArrayList<Weeks>();
+
+
+        aa = new WeekAdapter(this, R.layout.info_for_module_row, weeks);
+        lv.setAdapter(aa);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
