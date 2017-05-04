@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import static android.R.id.message;
 
 public class InfoActivity extends AppCompatActivity {
-    Button btnInfo, btnEmail;
+    Button btnInfo, btnEmail, btnAdd;
     ListView lv;
     ArrayAdapter aa;
     ArrayList<Weeks> weeks;
@@ -40,6 +40,7 @@ public class InfoActivity extends AppCompatActivity {
 
         btnInfo = (Button) findViewById(R.id.infoButton);
         btnEmail = (Button) findViewById(R.id.emailButton);
+        btnAdd = (Button)findViewById(R.id.addButton);
         lv=(ListView)findViewById(R.id.lvInfo);
 
 //        LayoutInflater myinflater = getLayoutInflater();
@@ -54,39 +55,6 @@ public class InfoActivity extends AppCompatActivity {
 
         aa = new WeekAdapter(this, R.layout.info_for_module_row, weeks);
         lv.setAdapter(aa);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -113,7 +81,7 @@ public class InfoActivity extends AppCompatActivity {
                 email.putExtra(Intent.EXTRA_EMAIL,
                         new String[]{"15017082@myrp.edu.sg"});
                 email.putExtra(Intent.EXTRA_SUBJECT,
-                        "Remarks so far");
+                        "");
                 int count = lv.getCount();
                 for(int i = 0; i < count; i++){
                     String message = "week" + (i+1) + "DG:" + lv.getItemAtPosition(i);
@@ -129,6 +97,15 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
+
     }
+
+
 
 }

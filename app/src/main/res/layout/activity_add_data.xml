@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvWeek"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -30,10 +30,10 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/tvDG"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:text="DG"
                 android:textColor="@android:color/holo_orange_dark" />
 
             <RadioGroup
@@ -42,45 +42,51 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/radioButtonA"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="onButtonClick"
                     android:text="A" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/radioButtonB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="onButtonClick"
                     android:text="B" />
 
                 <RadioButton
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/radioButtonC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="onButtonClick"
                     android:text="C" />
 
                 <RadioButton
-                    android:id="@+id/radioButton4"
+                    android:id="@+id/radioButtonD"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="onButtonClick"
                     android:text="D" />
 
                 <RadioButton
-                    android:id="@+id/radioButton5"
+                    android:id="@+id/radioButtonF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="E" />
+                    android:onClick="onButtonClick"
+                    android:text="F" />
 
                 <RadioButton
-                    android:id="@+id/radioButton6"
+                    android:id="@+id/radioButtonX"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="onButtonClick"
                     android:text="X" />
 
             </RadioGroup>
@@ -88,4 +94,10 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit" />
 </LinearLayout>
