@@ -17,10 +17,12 @@ import java.util.ArrayList;
 import static android.R.id.message;
 
 public class InfoActivity extends AppCompatActivity {
-    Button btnInfo, btnEmail;
+    Button btnInfo, btnEmail, btnAdd;
     ListView lv;
     ArrayAdapter aa;
     ArrayList<Weeks> weeks;
+
+    int requestCode = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,8 @@ public class InfoActivity extends AppCompatActivity {
 
         btnInfo = (Button) findViewById(R.id.infoButton);
         btnEmail = (Button) findViewById(R.id.emailButton);
+        btnAdd = (Button) findViewById(R.id.addBtn);
+
         lv = (ListView) findViewById(R.id.lvInfo);
 
         weeks = new ArrayList<Weeks>();
@@ -86,7 +90,6 @@ public class InfoActivity extends AppCompatActivity {
                     email.putExtra(Intent.EXTRA_TEXT, message);
                 }
 
-
                 // This MIME type indicates email
                 email.setType("message/rfc822");
                 // createChooser shows user a list of app that can handle
@@ -94,6 +97,14 @@ public class InfoActivity extends AppCompatActivity {
                 startActivity(Intent.createChooser(email,
                         "Choose an Email client :"));
 
+            }
+        });
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(InfoActivity.this, AddData.class);
+                startActivityForResult(i, requestCode);
             }
         });
 
