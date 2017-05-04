@@ -41,10 +41,13 @@ public class MainActivity extends AppCompatActivity {
                 Modules selectedModule = module.get(position);
 
                 Toast.makeText(MainActivity.this, ""+selectedModule.getModuleCode(), Toast.LENGTH_SHORT).show();
-                String sendOver = selectedModule.getModuleCode();
+                String sendOverModuleCode = selectedModule.getModuleCode();
+                String sendOverModuleName = selectedModule.getModuleName();
+
+                Modules selectedModule2 = new Modules(sendOverModuleCode, sendOverModuleName);
 
                 Intent i = new Intent(MainActivity.this, InfoActivity.class);
-                i.putExtra("forZongHua", sendOver);
+                i.putExtra("forZongHua", selectedModule2);
 
                 startActivityForResult(i, requestCodeForModule);
 
