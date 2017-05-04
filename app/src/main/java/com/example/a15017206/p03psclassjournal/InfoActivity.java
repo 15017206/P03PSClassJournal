@@ -10,13 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import static android.R.id.message;
 
 public class InfoActivity extends AppCompatActivity {
-    Button btnInfo, btnEmail, btnAdd;
+    Button btnInfo, btnEmail;
     ListView lv;
     ArrayAdapter aa;
     ArrayList<Weeks> weeks;
@@ -40,12 +41,7 @@ public class InfoActivity extends AppCompatActivity {
 
         btnInfo = (Button) findViewById(R.id.infoButton);
         btnEmail = (Button) findViewById(R.id.emailButton);
-        btnAdd = (Button)findViewById(R.id.addButton);
-        lv=(ListView)findViewById(R.id.lvInfo);
-
-//        LayoutInflater myinflater = getLayoutInflater();
-//        ViewGroup myHeader = (ViewGroup)myinflater.inflate(R.layout.activity_info, lv, false);
-//        lv.addHeaderView(myHeader, null, false);
+        lv = (ListView) findViewById(R.id.lvInfo);
 
         weeks = new ArrayList<Weeks>();
         weeks.add(new Weeks("Week 1", "A"));
@@ -55,9 +51,6 @@ public class InfoActivity extends AppCompatActivity {
 
         aa = new WeekAdapter(this, R.layout.info_for_module_row, weeks);
         lv.setAdapter(aa);
-
-
-
 
 
         btnInfo.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +64,7 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
-        btnEmail.setOnClickListener(new View.OnClickListener(){
+        btnEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 // The action you want this intent to do;
@@ -81,12 +74,19 @@ public class InfoActivity extends AppCompatActivity {
                 email.putExtra(Intent.EXTRA_EMAIL,
                         new String[]{"15017082@myrp.edu.sg"});
                 email.putExtra(Intent.EXTRA_SUBJECT,
-                        "");
-                int count = lv.getCount();
-                for(int i = 0; i < count; i++){
-                    String message = "week" + (i+1) + "DG:" + lv.getItemAtPosition(i);
+                        "Remarks so far");
+                Toast.makeText(InfoActivity.this, "" + weeks.size(), Toast.LENGTH_SHORT).show();
+
+                String message = "";
+                message = "Hi faci, I am...\n";
+                message += "Please see my remarks so far, thank you!\n\n";
+                for (int i = 0; i < weeks.size(); i++) {
+
+                    message += "" + weeks.get(i).getWeekNo() + ": DG: " + weeks.get(i).getWeekGrade()+ "\n";
+                    email.putExtra(Intent.EXTRA_TEXT, message);
                 }
-                email.putExtra(Intent.EXTRA_TEXT, message);
+
+
                 // This MIME type indicates email
                 email.setType("message/rfc822");
                 // createChooser shows user a list of app that can handle
@@ -97,15 +97,6 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
-        btnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //test
-            }
-        });
-
     }
-
-
 
 }
