@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    int requestCodeForModule = 1;
+
     ListView lv1;
     ArrayAdapter aa;
     ArrayList<Modules> module;
@@ -40,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, ""+selectedModule.getModuleCode(), Toast.LENGTH_SHORT).show();
                 String sendOver = selectedModule.getModuleCode();
 
-                Intent i = new Intent();
-                i.putExtra("ModuleCode",sendOver);
-                setResult(RESULT_OK, i);
-                finish();
+                Intent i = new Intent(MainActivity.this, InfoActivity.class);
+                i.putExtra("forZongHua", sendOver);
+
+                startActivityForResult(i, requestCodeForModule);
 
             }
         });
