@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -40,11 +41,7 @@ public class InfoActivity extends AppCompatActivity {
 
         btnInfo = (Button) findViewById(R.id.infoButton);
         btnEmail = (Button) findViewById(R.id.emailButton);
-        lv=(ListView)findViewById(R.id.lvInfo);
-
-//        LayoutInflater myinflater = getLayoutInflater();
-//        ViewGroup myHeader = (ViewGroup)myinflater.inflate(R.layout.activity_info, lv, false);
-//        lv.addHeaderView(myHeader, null, false);
+        lv = (ListView) findViewById(R.id.lvInfo);
 
         weeks = new ArrayList<Weeks>();
         weeks.add(new Weeks("Week 1", "A"));
@@ -54,42 +51,6 @@ public class InfoActivity extends AppCompatActivity {
 
         aa = new WeekAdapter(this, R.layout.info_for_module_row, weeks);
         lv.setAdapter(aa);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         btnInfo.setOnClickListener(new View.OnClickListener() {
@@ -103,7 +64,7 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
-        btnEmail.setOnClickListener(new View.OnClickListener(){
+        btnEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 // The action you want this intent to do;
@@ -114,11 +75,18 @@ public class InfoActivity extends AppCompatActivity {
                         new String[]{"15017082@myrp.edu.sg"});
                 email.putExtra(Intent.EXTRA_SUBJECT,
                         "Remarks so far");
-                int count = lv.getCount();
-                for(int i = 0; i < count; i++){
-                    String message = "week" + (i+1) + "DG:" + lv.getItemAtPosition(i);
+                Toast.makeText(InfoActivity.this, "" + weeks.size(), Toast.LENGTH_SHORT).show();
+
+                String message = "";
+                message = "Hi faci, I am...\n";
+                message += "Please see my remarks so far, thank you!";
+                for (int i = 0; i < weeks.size(); i++) {
+
+                    message += "" + weeks.get(i).getWeekNo() + ": DG: " + weeks.get(i).getWeekGrade()+ "\n";
+                    email.putExtra(Intent.EXTRA_TEXT, message);
                 }
-                email.putExtra(Intent.EXTRA_TEXT, message);
+
+
                 // This MIME type indicates email
                 email.setType("message/rfc822");
                 // createChooser shows user a list of app that can handle
