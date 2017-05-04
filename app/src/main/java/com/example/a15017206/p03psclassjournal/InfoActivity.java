@@ -103,7 +103,10 @@ public class InfoActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Weeks newWeekEntry = new Weeks( weeks.size() + "", "");
                 Intent i = new Intent(InfoActivity.this, AddData.class);
+                Toast.makeText(InfoActivity.this, "" + newWeekEntry, Toast.LENGTH_SHORT).show();
+
                 startActivityForResult(i, requestCode);
             }
         });
