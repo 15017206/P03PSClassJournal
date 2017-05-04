@@ -37,6 +37,7 @@
                 android:textColor="@android:color/holo_orange_dark" />
 
             <RadioGroup
+                android:id="@+id/radioG"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
@@ -46,7 +47,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="onButtonClick"
                     android:text="A" />
 
                 <RadioButton
@@ -54,7 +54,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="onButtonClick"
                     android:text="B" />
 
                 <RadioButton
@@ -62,7 +61,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="onButtonClick"
                     android:text="C" />
 
                 <RadioButton
@@ -70,7 +68,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="onButtonClick"
                     android:text="D" />
 
                 <RadioButton
@@ -78,7 +75,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="onButtonClick"
                     android:text="F" />
 
                 <RadioButton
@@ -86,7 +82,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="onButtonClick"
                     android:text="X" />
 
             </RadioGroup>

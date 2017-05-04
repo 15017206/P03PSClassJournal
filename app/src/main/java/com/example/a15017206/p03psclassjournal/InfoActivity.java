@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -21,8 +22,9 @@ public class InfoActivity extends AppCompatActivity {
     ListView lv;
     ArrayAdapter aa;
     ArrayList<Weeks> weeks;
+    TextView tv;
 
-    int requestCode = 1;
+    int requestCode2 = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class InfoActivity extends AppCompatActivity {
         btnInfo = (Button) findViewById(R.id.infoButton);
         btnEmail = (Button) findViewById(R.id.emailButton);
         btnAdd = (Button) findViewById(R.id.addBtn);
+        tv = (TextView) findViewById(R.id.tvDebug);
 
         lv = (ListView) findViewById(R.id.lvInfo);
 
@@ -51,6 +54,7 @@ public class InfoActivity extends AppCompatActivity {
         weeks.add(new Weeks("Week 1", "A"));
         weeks.add(new Weeks("Week 2", "C"));
         weeks.add(new Weeks("Week 3", "B"));
+        weeks.add(new Weeks("Week 4", "A"));
 
 
         aa = new WeekAdapter(this, R.layout.info_for_module_row, weeks);
@@ -103,14 +107,33 @@ public class InfoActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Weeks newWeekEntry = new Weeks( weeks.size() + "", "");
+                int nextWeek = weeks.size()+1 ;
                 Intent i = new Intent(InfoActivity.this, AddData.class);
-                Toast.makeText(InfoActivity.this, "" + newWeekEntry, Toast.LENGTH_SHORT).show();
-
-                startActivityForResult(i, requestCode);
+//
+                i.putExtra("weekNo", nextWeek +"");
+                startActivityForResult(i, requestCode2);
             }
         });
 
-    }
 
+
+    }
+String score = "";
+    String weekNo = "";
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode == RESULT_OK){
+            if (data != null){
+                score = data.getStringExtra("score");
+                weekNo = data.getStringExtra("weekNo");
+                if (requestCode == requestCode2){
+                    tv.setText(score);
+                }
+            }
+
+            weeks.add(new Weeks("Week " + weekNo, score));
+            aa.notifyDataSetChanged();
+        }
+    }
 }

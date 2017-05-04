@@ -8,7 +8,9 @@ public class Weeks {
     private String weekNo;
     private String weekGrade;
 
+
     public Weeks(String weekNo, String weekGrade) {
+
         this.weekNo = weekNo;
         this.weekGrade = weekGrade;
     }

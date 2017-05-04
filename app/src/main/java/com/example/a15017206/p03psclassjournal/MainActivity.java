@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Modules selectedModule = module.get(position);
 
-                Toast.makeText(MainActivity.this, ""+selectedModule.getModuleCode(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, ""+selectedModule.getModuleCode(), Toast.LENGTH_SHORT).show();
                 String sendOverModuleCode = selectedModule.getModuleCode();
                 String sendOverModuleName = selectedModule.getModuleName();
 
