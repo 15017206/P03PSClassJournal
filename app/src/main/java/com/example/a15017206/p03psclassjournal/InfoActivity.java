@@ -15,6 +15,8 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
+        getSupportActionBar().setTitle("Info for C347");
+
         btnInfo = (Button) findViewById(R.id.infoButton);
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
