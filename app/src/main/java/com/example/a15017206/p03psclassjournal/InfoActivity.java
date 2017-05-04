@@ -47,6 +47,9 @@ public class InfoActivity extends AppCompatActivity {
 //        lv.addHeaderView(myHeader, null, false);
 
         weeks = new ArrayList<Weeks>();
+        weeks.add(new Weeks("Week 1", "A"));
+        weeks.add(new Weeks("Week 2", "C"));
+        weeks.add(new Weeks("Week 3", "B"));
 
 
         aa = new WeekAdapter(this, R.layout.info_for_module_row, weeks);

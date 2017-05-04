@@ -44,7 +44,10 @@ public class WeekAdapter extends ArrayAdapter<Weeks> {
         tvWeekNo = (TextView) rowView.findViewById(R.id.tvWeekNo);
         tvGrade = (TextView) rowView.findViewById(R.id.tvGrade);
 
+        Weeks currentWeek = weeks.get(position);
 
+        tvWeekNo.setText(currentWeek.getWeekNo());
+        tvGrade.setText(currentWeek.getWeekGrade());
 
 
 
