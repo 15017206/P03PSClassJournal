@@ -20,7 +20,14 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
-        getSupportActionBar().setTitle("Info for C347");
+        // Get the intent
+        Intent i = getIntent();
+
+        // Get the Hero object first activity put in Intent
+        Modules passedOverModuleCode = (Modules) i.getSerializableExtra("forZongHua");
+
+        //set title for others
+        getSupportActionBar().setTitle("Info for " + passedOverModuleCode.getModuleName());
 
         btnInfo = (Button) findViewById(R.id.infoButton);
         btnEmail = (Button) findViewById(R.id.emailButton);
